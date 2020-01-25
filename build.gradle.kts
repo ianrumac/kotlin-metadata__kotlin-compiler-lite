@@ -82,7 +82,9 @@ val publish by tasks.creating(GradleBuild::class) {
 }
 
 plugins { id("com.jfrog.bintray") version "1.8.0" }
-
+subprojects {
+    apply { plugin("maven") }
+}
 configure<BintrayExtension> {
     publish = bintrayPublish
     override = bintrayOverride
